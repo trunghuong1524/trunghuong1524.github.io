@@ -1,0 +1,147 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap');
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: #1e3c72; /* Fallback */
+    background: linear-gradient(to top, #1e3c72, #2a5298);
+    color: #fff;
+}
+
+/* Background Effects */
+.stars, .twinkling, .clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stars {
+    background: transparent url('https://i.imgur.com/3Wb0B3X.png') repeat top center;
+    z-index: 0;
+    animation: moveStars 50s linear infinite;
+}
+
+.twinkling {
+    background: transparent url('https://i.imgur.com/3Wb0B3X.png') repeat top center;
+    z-index: 1;
+    animation: moveTwinkling 100s linear infinite;
+    opacity: 0.5;
+}
+
+.clouds {
+    background: transparent url('https://i.imgur.com/3Wb0B3X.png') repeat top center;
+    z-index: 2;
+    animation: moveClouds 60s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes moveStars {
+    from { transform: translateX(0); }
+    to { transform: translateX(-1000px); }
+}
+
+@keyframes moveTwinkling {
+    from { transform: translateX(0); }
+    to { transform: translateX(-1000px); }
+}
+
+@keyframes moveClouds {
+    from { transform: translateX(0); }
+    to { transform: translateX(-1000px); }
+}
+
+/* Container Styles */
+.container {
+    position: relative;
+    z-index: 3;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-60px); }
+    to { opacity: 1; transform: translateY(-50%); }
+}
+
+.heart {
+    font-size: 50px;
+    color: #e74c3c;
+    margin-bottom: 20px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #ff6b81;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+p {
+    font-size: 1.2em;
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 25px;
+    font-size: 1em;
+    color: #fff;
+    background: linear-gradient(45deg, #ff6b81, #ff4757);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.btn i {
+    margin-right: 10px;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #ff4757, #e84118);
+}
+
+/* Confetti Canvas */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 4;
+}
