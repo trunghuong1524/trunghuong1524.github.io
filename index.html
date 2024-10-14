@@ -4,30 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xin Lỗi Em Yêu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6i3KKqjaEf5CM4fL0Rn3pc1V+6XgGk5dk6akQn3zR3bB9G+8M5wN8ovDfFSmBhkHt5u5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="stars"></div>
-    <div class="twinkling"></div>
-    <div class="clouds"></div>
+    <div class="background"></div>
 
     <div class="container">
-        <div class="heart">
-            <i class="fas fa-heart"></i>
-        </div>
-        <h1>Em ơi,</h1>
-        <p>Mình thật sự xin lỗi vì những điều đã xảy ra. Mình rất trân trọng và yêu em rất nhiều.</p>
-        <p>Hy vọng em sẽ tha thứ và chúng ta có thể tiếp tục bên nhau.</p>
+        <h1>Xin lỗi em yêu</h1>
+        <p>Tha thứ cho anh. Anh thật sự rất tiếc về những gì đã xảy ra và mong em có thể tha thứ.</p>
         <button class="btn" id="sendEmailBtn">
             <i class="fas fa-paper-plane"></i> Gửi Lời Xin Lỗi
         </button>
     </div>
 
-    <!-- Confetti Canvas -->
-    <canvas id="confetti-canvas"></canvas>
+    <!-- Heart Animation -->
+    <div class="hearts">
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+    </div>
+
+    <!-- Snowfall Effect -->
+    <div id="snowfall"></div>
 
     <script src="script.js"></script>
 </body>

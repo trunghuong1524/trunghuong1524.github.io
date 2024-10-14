@@ -1,66 +1,60 @@
-// Confetti Animation using Canvas
-const canvas = document.getElementById('confetti-canvas');
-const ctx = canvas.getContext('2d');
-let confetti = [];
+// Snowfall Effect using Canvas
+const snowfall = document.getElementById('snowfall');
+const ctx = snowfall.getContext('2d');
+let flakes = [];
+const flakeCount = 100;
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+// Set canvas size
+function setSize() {
+    snowfall.width = window.innerWidth;
+    snowfall.height = window.innerHeight;
+}
+setSize();
+window.addEventListener('resize', setSize);
 
-// Resize canvas on window resize
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
-
-// Confetti class
-class ConfettiPiece {
+// Flake class
+class Flake {
     constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height - canvas.height;
-        this.size = Math.random() * 7 + 5;
-        this.weight = Math.random() * 0.5 + 0.5;
-        this.angle = Math.random() * 360;
-        this.color = `hsl(${Math.random() * 360}, 70%, 60%)`;
+        this.x = Math.random() * snowfall.width;
+        this.y = Math.random() * snowfall.height;
+        this.size = Math.random() * 3 + 2;
+        this.speed = Math.random() * 1 + 0.5;
+        this.opacity = Math.random() * 0.5 + 0.3;
     }
 
     update() {
-        this.y += this.weight;
-        this.angle += Math.random() * 2;
-        if (this.y > canvas.height) {
-            this.y = -10;
-            this.x = Math.random() * canvas.width;
+        this.y += this.speed;
+        if (this.y > snowfall.height) {
+            this.y = -this.size;
+            this.x = Math.random() * snowfall.width;
         }
     }
 
     draw() {
         ctx.beginPath();
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
         ctx.fill();
     }
 }
 
-// Initialize confetti
-function initConfetti() {
-    for (let i = 0; i < 300; i++) {
-        confetti.push(new ConfettiPiece());
-    }
+// Initialize flakes
+for (let i = 0; i < flakeCount; i++) {
+    flakes.push(new Flake());
 }
 
-// Animate confetti
-function animateConfetti() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    confetti.forEach(particle => {
-        particle.update();
-        particle.draw();
+// Animate flakes
+function animate() {
+    ctx.clearRect(0, 0, snowfall.width, snowfall.height);
+    flakes.forEach(flake => {
+        flake.update();
+        flake.draw();
     });
-    requestAnimationFrame(animateConfetti);
+    requestAnimationFrame(animate);
 }
-
-initConfetti();
-animateConfetti();
+animate();
 
 // Send Email Function
 document.getElementById('sendEmailBtn').addEventListener('click', () => {
-    window.location.href = 'mailto:emailcuabạn@example.com?subject=Xin lỗi&body=Anh muốn xin lỗi em vì...';
+    window.location.href = 'mailto:emailcuaban@example.com?subject=Xin lỗi&body=Anh muốn xin lỗi em vì...';
 });
